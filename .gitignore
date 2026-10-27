@@ -1,0 +1,13 @@
+# ROS 2 - pliki kompilacji
+/build/
+/install/
+/log/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Pliki tymczasowe
+*.swp
+*~
