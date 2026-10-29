@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="jetracer">
+
+  <!-- ======================================= -->
+  <!-- PODWOZIE JETRACERA                      -->
+  <!-- ======================================= -->
+
+  <link name="base_link">
+    <visual>
+      <origin
+        xyz="0.084440 -0.044779 0.041111"
+        rpy="1.570796 0 3.141593"/>
+
+      <geometry>
+        <mesh
+          filename="package://jetracer_description/meshes/chassis.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <!-- ======================================= -->
+  <!-- TYLNE LEWE KOLO                         -->
+  <!-- ======================================= -->
+
+  <link name="rear_left_wheel">
+    <visual>
+      <origin
+        xyz="0.084440 -0.125529 0.041111"
+        rpy="1.570796 0 3.141593"/>
+
+      <geometry>
+        <mesh
+          filename="package://jetracer_description/meshes/rear_left_wheel.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="rear_left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="0 0.080750 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- ======================================= -->
+  <!-- TYLNE PRAWE KOLO                        -->
+  <!-- ======================================= -->
+
+  <link name="rear_right_wheel">
+    <visual>
+      <origin
+        xyz="0.084440 0.035971 0.041111"
+        rpy="1.570796 0 3.141593"/>
+
+      <geometry>
+        <mesh
+          filename="package://jetracer_description/meshes/rear_right_wheel.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="rear_right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="0 -0.080750 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- ======================================= -->
+  <!-- PRZEDNIE LEWE KOLO                      -->
+  <!-- ======================================= -->
+
+  <link name="front_left_wheel">
+    <visual>
+      <origin
+        xyz="-0.062929 -0.1122745 0.041111"
+        rpy="1.570796 0 3.141593"/>
+
+      <geometry>
+        <mesh
+          filename="package://jetracer_description/meshes/front_left_wheel.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="front_left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.147369 0.0674955 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- ======================================= -->
+  <!-- PRZEDNIE PRAWE KOLO                     -->
+  <!-- ======================================= -->
+
+  <link name="front_right_wheel">
+    <visual>
+      <origin
+        xyz="-0.062929 0.0227165 0.041111"
+        rpy="1.570796 0 3.141593"/>
+
+      <geometry>
+        <mesh
+          filename="package://jetracer_description/meshes/front_right_wheel.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.147369 -0.0674955 0" rpy="0 0 0"/>
+  </joint>
+  <!-- ======================================= -->
+  <!-- RPLIDAR A1M8-R5                         -->
+  <!-- ======================================= -->
+
+  <link name="laser"/>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin
+      xyz="0.170 -0.006 0.0736"
+      rpy="0 0 1.570796"/>
+  </joint>
+
+
+  <!-- ======================================= -->
+  <!-- INTEL REALSENSE T265                    -->
+  <!-- ======================================= -->
+
+  <link name="t265_tracking_center"/>
+
+  <joint name="t265_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="t265_tracking_center"/>
+    <origin
+      xyz="0.21595 0.00910 0.02225"
+      rpy="1.570796 0 -1.570796"/>
+  </joint>
+</robot>
