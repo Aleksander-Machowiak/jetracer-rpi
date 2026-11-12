@@ -11,3 +11,4 @@ __pycache__/
 # Pliki tymczasowe
 *.swp
 *~
+/slam_bags/
